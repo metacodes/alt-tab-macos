@@ -126,11 +126,6 @@ func CGSManagedDisplayGetCurrentSpace(_ cid: CGSConnectionID, _ displayUuid: CFS
 @_silgen_name("CGSAddWindowsToSpaces")
 func CGSAddWindowsToSpaces(_ cid: CGSConnectionID, _ windows: NSArray, _ spaces: NSArray) -> Void
 
-// Move the given windows (CGWindowIDs) to the given space (CGSSpaceID)
-// * macOS 10.10+
-@_silgen_name("CGSMoveWindowsToManagedSpace")
-func CGSMoveWindowsToManagedSpace(_ cid: CGSConnectionID, _ windows: NSArray, _ space: CGSSpaceID) -> Void
-
 // remove the provided windows from the provided spaces
 // * macOS 10.10-12.2
 @_silgen_name("CGSRemoveWindowsFromSpaces")
