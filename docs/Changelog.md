@@ -1,5 +1,49 @@
 # Release notes
 
+# [6.40.0](https://github.com/lwouis/alt-tab-macos/compare/v6.39.1...v6.40.0) (2022-05-27)
+
+
+### Bug Fixes
+
+* focusing alt-tab own windows could fail ([#759](https://github.com/lwouis/alt-tab-macos/issues/759)) ([08720d8](https://github.com/lwouis/alt-tab-macos/commit/08720d8))
+
+
+### Features
+
+* update spanish localization ([1ac0494](https://github.com/lwouis/alt-tab-macos/commit/1ac0494))
+
+## [6.39.1](https://github.com/lwouis/alt-tab-macos/compare/v6.39.0...v6.39.1) (2022-05-26)
+
+
+### Bug Fixes
+
+* better tabs detection + fix issues with some apps (closes [#1540](https://github.com/lwouis/alt-tab-macos/issues/1540)) ([abd54b3](https://github.com/lwouis/alt-tab-macos/commit/abd54b3)), closes [#647](https://github.com/lwouis/alt-tab-macos/issues/647) [#718](https://github.com/lwouis/alt-tab-macos/issues/718)
+
+# [6.39.0](https://github.com/lwouis/alt-tab-macos/compare/v6.38.0...v6.39.0) (2022-05-26)
+
+
+### Bug Fixes
+
+* handle being quit through activity-monitor (closes [#1622](https://github.com/lwouis/alt-tab-macos/issues/1622)) ([69a5ffd](https://github.com/lwouis/alt-tab-macos/commit/69a5ffd))
+
+
+### Features
+
+* middle-click a thumbnail to close that window (closes [#1621](https://github.com/lwouis/alt-tab-macos/issues/1621)) ([bc4c0cc](https://github.com/lwouis/alt-tab-macos/commit/bc4c0cc))
+* update contributors ([b1bf867](https://github.com/lwouis/alt-tab-macos/commit/b1bf867))
+
+# [6.38.0](https://github.com/lwouis/alt-tab-macos/compare/v6.37.1...v6.38.0) (2022-05-24)
+
+
+### Bug Fixes
+
+* better mouse hover behavior ([#1557](https://github.com/lwouis/alt-tab-macos/issues/1557)) ([d3cabc1](https://github.com/lwouis/alt-tab-macos/commit/d3cabc1))
+
+
+### Features
+
+* improve ukrainian, polish, albanian localization ([b02972b](https://github.com/lwouis/alt-tab-macos/commit/b02972b))
+
 ## [6.37.1](https://github.com/lwouis/alt-tab-macos/compare/v6.37.0...v6.37.1) (2022-05-12)
 
 
