@@ -4,12 +4,12 @@ import ApplicationServices
 class Applications {
     static var list = [Application]()
 
-    static func observeNewWindowsBlocking() {
+    static func manuallyUpdateWindowsFor2s() {
         let group = DispatchGroup()
         for app in list {
-            app.wasLaunchedBeforeAltTab = true
-            guard app.runningApplication.isFinishedLaunching else { continue }
-            app.observeNewWindows(group)
+            if app.runningApplication.isFinishedLaunching && app.runningApplication.activationPolicy != .prohibited {
+                app.manuallyUpdateWindows(group)
+            }
         }
         _ = group.wait(wallTimeout: .now() + .seconds(2))
     }
@@ -21,7 +21,7 @@ class Applications {
     }
 
     static func addInitialRunningApplications() {
-        addRunningApplications(NSWorkspace.shared.runningApplications, true)
+        addRunningApplications(NSWorkspace.shared.runningApplications)
     }
 
     static func addInitialRunningApplicationsWindows() {
@@ -33,16 +33,16 @@ class Applications {
             if windowsOnlyOnOtherSpaces.count > 0 {
                 // on initial launch, we use private APIs to bring windows from other spaces into the current space, observe them, then remove them from the current space
                 CGSAddWindowsToSpaces(cgsMainConnectionId, windowsOnlyOnOtherSpaces as NSArray, [Spaces.currentSpaceId])
-                Applications.observeNewWindowsBlocking()
+                Applications.manuallyUpdateWindowsFor2s()
                 CGSRemoveWindowsFromSpaces(cgsMainConnectionId, windowsOnlyOnOtherSpaces as NSArray, [Spaces.currentSpaceId])
             }
         }
     }
 
-    static func addRunningApplications(_ runningApps: [NSRunningApplication], _ wasLaunchedBeforeAltTab: Bool = false) {
+    static func addRunningApplications(_ runningApps: [NSRunningApplication]) {
         runningApps.forEach {
             if isActualApplication($0) {
-                Applications.list.append(Application($0, wasLaunchedBeforeAltTab))
+                Applications.list.append(Application($0))
             }
         }
     }
@@ -84,7 +84,7 @@ class Applications {
         Windows.list.enumerated().forEach { (i, window) in
             if !App.app.appIsBeingUsed { return }
             let view = ThumbnailsView.recycledViews[i]
-            if let app = (Applications.list.first { window.application.pid == $0.pid }) {
+            if let app = Applications.find(window.application.pid) {
                 if app.runningApplication.activationPolicy == .regular,
                    let bundleId = app.runningApplication.bundleIdentifier,
                    let url = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleId),
@@ -130,5 +130,9 @@ class Applications {
             return executablePath.range(of: "qemu-system[^/]*$", options: .regularExpression, range: nil, locale: nil) != nil
         }
         return false
+    }
+
+    static func find(_ pid: pid_t?) -> Application? {
+        return list.first { $0.pid == pid }
     }
 }
