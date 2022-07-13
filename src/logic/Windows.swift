@@ -160,18 +160,22 @@ class Windows {
     }
 
     static func detectTabbedWindows() {
-        let cgsWindowIds = Spaces.windowsInSpaces(Spaces.idsAndIndexes.map { $0.0 })
+        let cgsWindowIds = Spaces.windowsInSpaces(Spaces.idsAndIndexes.map { $0.0 }, [])
         list.forEach {
-            $0.isTabbed = !$0.isMinimized && !$0.isHidden && !cgsWindowIds.contains($0.cgWindowId)
+            if let cgWindowId = $0.cgWindowId {
+                $0.isTabbed = !$0.isMinimized && !$0.isHidden && !cgsWindowIds.contains(cgWindowId)
+            }
         }
     }
 
     static func sortByLevel() {
         var windowLevelMap = [CGWindowID: Int]()
-        for (index, cgWindowId) in Spaces.windowsInSpaces([Spaces.currentSpaceId]).enumerated() {
+        for (index, cgWindowId) in Spaces.windowsInSpaces([Spaces.currentSpaceId], [.minimizedAndTabbed]).enumerated() {
             windowLevelMap[cgWindowId] = index
         }
-        var sortedTuples = Windows.list.map { (windowLevelMap[$0.cgWindowId], $0) }
+        var sortedTuples = Windows.list
+                .filter { $0.cgWindowId != nil }
+                .map { (windowLevelMap[$0.cgWindowId!], $0) }
         sortedTuples.sort(by: {
             if $0.0 == nil {
                 return false
@@ -197,7 +201,7 @@ class Windows {
             BackgroundWork.mainQueueConcurrentWorkQueue.async {
                 if currentIndex < list.count {
                     let window = list[currentIndex]
-                    if window.shouldShowTheUser {
+                    if window.shouldShowTheUser && !window.isWindowlessApp {
                         window.refreshThumbnail()
                         DispatchQueue.main.async {
                             let view = ThumbnailsView.recycledViews[currentIndex]
@@ -223,7 +227,12 @@ class Windows {
 
     static func refreshIfWindowShouldBeShownToTheUser(_ window: Window, _ screen: NSScreen) {
         window.shouldShowTheUser =
-            !(window.application.runningApplication.bundleIdentifier.flatMap { id in Preferences.dontShowBlacklist.contains { id.hasPrefix($0) } } ?? false) &&
+            !(window.application.runningApplication.bundleIdentifier.flatMap { id in
+                Preferences.blacklist.contains {
+                    id.hasPrefix($0.bundleIdentifier) &&
+                        ($0.hide == .always || (window.isWindowlessApp && $0.hide != .none))
+                }
+            } ?? false) &&
             !(Preferences.appsToShow[App.app.shortcutIndex] == .active && window.application.runningApplication.processIdentifier != NSWorkspace.shared.frontmostApplication?.processIdentifier) &&
             !(!(Preferences.showHiddenWindows[App.app.shortcutIndex] != .hide) && window.isHidden) &&
             ((!Preferences.hideWindowlessApps && window.isWindowlessApp) ||

@@ -48,10 +48,22 @@
 "AltTab needs some permissions" = "AltTab require algúns permisos";
 
 /*No comment provided by engineer.*/
+"Always" = "Always";
+
+/*No comment provided by engineer.*/
 "Always send crash reports" = "Sempre enviar informes de erro";
 
 /*No comment provided by engineer.*/
 "and press:" = "e pulsar:";
+
+/*No comment provided by engineer.*/
+"App (BundleID starting with)" = "App (BundleID starting with)";
+
+/*No comment provided by engineer.*/
+"App is hidden" = "App is hidden";
+
+/*No comment provided by engineer.*/
+"App is running but has no open window" = "App is running but has no open window";
 
 /*No comment provided by engineer.*/
 "Apparition delay:" = "Retraso ao amosar";
@@ -129,6 +141,9 @@
 "Focus selected window" = "Dar o foco a ventá seleccionada";
 
 /*No comment provided by engineer.*/
+"Fullscreen window" = "Fullscreen window";
+
+/*No comment provided by engineer.*/
 "Fullscreen windows:" = "Ventás a pantalla completa:";
 
 /*No comment provided by engineer.*/
@@ -149,6 +164,9 @@
 /*No comment provided by engineer.*/
 "Hide colored circles on mouse hover:" = "Ocultar círculos con cor ao pasar o rato:";
 
+/*%@ is AltTab*/
+"Hide in %@" = "Hide in %@";
+
 /*No comment provided by engineer.*/
 "Hide Space number labels:" = "Ocultar etiquetas de número de espazo:";
 
@@ -166,6 +184,9 @@
 
 /*No comment provided by engineer.*/
 "I think the app could be improved with…" = "Acho que a aplicación podría mellorarse con...";
+
+/*No comment provided by engineer.*/
+"Ignore shortcuts when active" = "Ignore shortcuts when active";
 
 /*No comment provided by engineer.*/
 "Ignore shortcuts while a window from these apps is active" = "Ignorar atallos mentras unha ventá destas aplicacións estea activa";
@@ -345,10 +366,28 @@
 "Visible Spaces" = "Spaces visible";
 
 /*No comment provided by engineer.*/
+"When fullscreen" = "When fullscreen";
+
+/*No comment provided by engineer.*/
+"When no open window" = "When no open window";
+
+/*No comment provided by engineer.*/
 "While open, press:" = "Mentras este aberto, pulsar:";
 
 /*No comment provided by engineer.*/
 "Window app icon size:" = "Tamaño da icona da ventá de aplicación:";
+
+/*No comment provided by engineer.*/
+"Window is fullscreen" = "Window is fullscreen";
+
+/*No comment provided by engineer.*/
+"Window is minimized" = "Window is minimized";
+
+/*No comment provided by engineer.*/
+"Window is on every Space" = "Window is on every Space";
+
+/*No comment provided by engineer.*/
+"Window is on Space %d" = "Window is on Space %d";
 
 /*No comment provided by engineer.*/
 "Window max width in row:" = "Ancho maximo de ventá en fila";

@@ -48,10 +48,22 @@
 "AltTab needs some permissions" = "AltTab има нужда от разрешения";
 
 /*No comment provided by engineer.*/
+"Always" = "Always";
+
+/*No comment provided by engineer.*/
 "Always send crash reports" = "Винаги пращай отчет";
 
 /*No comment provided by engineer.*/
 "and press:" = "и натискане на";
+
+/*No comment provided by engineer.*/
+"App (BundleID starting with)" = "App (BundleID starting with)";
+
+/*No comment provided by engineer.*/
+"App is hidden" = "App is hidden";
+
+/*No comment provided by engineer.*/
+"App is running but has no open window" = "App is running but has no open window";
 
 /*No comment provided by engineer.*/
 "Apparition delay:" = "Изчакване преди появяване:";
@@ -129,6 +141,9 @@
 "Focus selected window" = "Покажи избрания прозорец";
 
 /*No comment provided by engineer.*/
+"Fullscreen window" = "Fullscreen window";
+
+/*No comment provided by engineer.*/
 "Fullscreen windows:" = "Приложения на цял екран:";
 
 /*No comment provided by engineer.*/
@@ -149,6 +164,9 @@
 /*No comment provided by engineer.*/
 "Hide colored circles on mouse hover:" = "Не показвай контроли на прозореца при преминаване с мишка";
 
+/*%@ is AltTab*/
+"Hide in %@" = "Hide in %@";
+
 /*No comment provided by engineer.*/
 "Hide Space number labels:" = "Скрий номера на пространството:";
 
@@ -166,6 +184,9 @@
 
 /*No comment provided by engineer.*/
 "I think the app could be improved with…" = "Предлагам подобрение на приложението...";
+
+/*No comment provided by engineer.*/
+"Ignore shortcuts when active" = "Ignore shortcuts when active";
 
 /*No comment provided by engineer.*/
 "Ignore shortcuts while a window from these apps is active" = "Игнорирай шорткъта в следните приложения:";
@@ -345,10 +366,28 @@
 "Visible Spaces" = "видимите пространства";
 
 /*No comment provided by engineer.*/
+"When fullscreen" = "When fullscreen";
+
+/*No comment provided by engineer.*/
+"When no open window" = "When no open window";
+
+/*No comment provided by engineer.*/
 "While open, press:" = "С бутон";
 
 /*No comment provided by engineer.*/
 "Window app icon size:" = "Размер на иконата:";
+
+/*No comment provided by engineer.*/
+"Window is fullscreen" = "Window is fullscreen";
+
+/*No comment provided by engineer.*/
+"Window is minimized" = "Window is minimized";
+
+/*No comment provided by engineer.*/
+"Window is on every Space" = "Window is on every Space";
+
+/*No comment provided by engineer.*/
+"Window is on Space %d" = "Window is on Space %d";
 
 /*No comment provided by engineer.*/
 "Window max width in row:" = "Максимална част от реда за един прозорец:";
